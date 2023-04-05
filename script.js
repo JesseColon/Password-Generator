@@ -25,28 +25,49 @@ function getRandomSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
+function generatePassword (){
+  var lenthEl=prompt("how long would you like the password to be (enter a number between 8 and 128)","" )
+ 
+  if (lenthEl < 8) {alert("pasword length must be at least 8 characters")
+return null
+}
+  if (lenthEl > 128) {alert("password length must be at most 128 characters")
+return null
+}
+
+if (isNaN(lenthEl)){alert("plz only enter a number between 8 and 128")
+return null
+}
+ 
+ var lowerEl=confirm("would you like to include lowercase letters")
+  var upperEl=confirm("would you like to include uppercase letters")	
+  var symbolEl=confirm("would you like to include symbols")
+  var numberEl=confirm("would you like to include numbers")
+
+  if (lowerEl === false && upperEl === false && symbolEl === false && numberEl === false){
+    alert("must at least choose 1 character set")
+    return null
+  }
+
+  {	passwordText.write("lower " + lowerEl + "Upper "+ upperEl);
+}
+
+var typescount = lower + upper + number + symbol;
+
+}
+
 // Write password to the #password input
 function writePassword(lowerEl, upperEl, numberEl, symbolEl, lengthEl) {
   var password = generatePassword();
   var passwordText = document.querySelector("#password"); 
-  var lowerEl=prompt("Please enter Y or N","")
-  var upperEl=prompt("Please enter Y or N","")	
-  var symbolEl=prompt("Please enter Y or N","")
-  var numberEl=prompt("Please enter Y or N","")
   
-  if (lowerEl!=null && lowerEl!="Y")	
-  {}
-
-  {					if (upperEl != null && upperEl != "Y")	
-
-  {	passwordText.write("lower " + lowerEl + "Upper "+ upperEl);
-}
+ 
   passwordText.value = password;
 
    
+}
 
-}
-}
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
