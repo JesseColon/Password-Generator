@@ -52,12 +52,30 @@ return null
   {	passwordText.write("lower " + lowerEl + "Upper "+ upperEl);
 }
 
-var typescount = lower + upper + number + symbol;
+const typescount = lower + upper + number + symbol;
+
+  const typesArray = [{upper}, {lower}, {number}, {symbol}].filter
+  (
+    item => Object.values(item)[0]
+  );
+
+  if(typescount === 0) {
+    return '';
+  }
+
+  for(let i = 0; i < length; i += typescount) {
+    typesArray.forEach(type => {
+      const funcName = object.key(type)[0];
+      // console.log(funcName)
+
+      generatedpassword += randomFunc[funcName]();
+    });
+  }
 
 }
 
 // Write password to the #password input
-function writePassword(lowerEl, upperEl, numberEl, symbolEl, lengthEl) {
+function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password"); 
   
