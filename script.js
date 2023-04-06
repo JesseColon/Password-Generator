@@ -25,23 +25,33 @@ function getRandomSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-function generatePassword (){
-  var lenthEl=prompt("how long would you like the password to be (enter a number between 8 and 128)","" )
+// console.log(getRandomLower(), getRandomUpper(), getRandomNumber(), getRandomSymbol());
+
+generateBtn.addEventListener("click", writePassword)
+
+function generatePassword (length, lower, upper, number, symbol){
  
-  if (lenthEl < 8) {alert("pasword length must be at least 8 characters")
+ 
+
+  var lengthEl=prompt("how long would you like the password to be (enter a number between 8 and 128)","" )
+ 
+  if (lengthEl < 8) {alert("pasword length must be at least 8 characters")
 return null
 }
-  if (lenthEl > 128) {alert("password length must be at most 128 characters")
+  if (lengthEl > 128) {alert("password length must be at most 128 characters")
 return null
 }
 
-if (isNaN(lenthEl)){alert("plz only enter a number between 8 and 128")
+if (isNaN(lengthEl)){alert("plz only enter a number between 8 and 128")
 return null
 }
  
  var lowerEl=confirm("would you like to include lowercase letters")
+ 
   var upperEl=confirm("would you like to include uppercase letters")	
+
   var symbolEl=confirm("would you like to include symbols")
+
   var numberEl=confirm("would you like to include numbers")
 
   if (lowerEl === false && upperEl === false && symbolEl === false && numberEl === false){
@@ -49,26 +59,22 @@ return null
     return null
   }
 
-  {	passwordText.write("lower " + lowerEl + "Upper "+ upperEl);
+  {	
+    
 }
 
-const typescount = lower + upper + number + symbol;
+var typescount = lower + upper + number + symbol;
 
-  const typesArray = [{upper}, {lower}, {number}, {symbol}].filter
+  var typesArray = [{upper}, {lower}, {number}, {symbol}].filter
   (
     item => Object.values(item)[0]
   );
 
-  if(typescount === 0) {
-    return '';
-  }
-
   for(let i = 0; i < length; i += typescount) {
     typesArray.forEach(type => {
       const funcName = object.key(type)[0];
-      // console.log(funcName)
 
-      generatedpassword += randomFunc[funcName]();
+     passwordText += randomFunc[funcName]();
     });
   }
 
@@ -84,8 +90,3 @@ function writePassword() {
 
    
 }
-
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
