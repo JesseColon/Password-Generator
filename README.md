@@ -7,3 +7,9 @@ In doing this I intend to make it possible to make a password of a lingth betwee
 
 ## Usage
  ![alt text](./Assets/password-gen.PNG)
+
+## Deployment
+  https://jessecolon.github.io/Password-Generator/
+  
+## Git Hub Repo
+https://github.com/JesseColon/Password-Generator
