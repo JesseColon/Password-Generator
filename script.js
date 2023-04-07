@@ -1,6 +1,8 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
   
+// functions here create random charecters for password
+
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
@@ -18,13 +20,12 @@ function getRandomSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-// console.log(getRandomLower(), getRandomUpper(), getRandomNumber(), getRandomSymbol());
 
 generateBtn.addEventListener("click", writePassword)
 
 function generatePassword (){
  
- 
+//  creating popup prompts for user input
 
   var lengthEl=prompt("how long would you like the password to be (enter a number between 8 and 128)","" );
  
@@ -39,6 +40,8 @@ if (isNaN(lengthEl)){alert("plz only enter a number between 8 and 128");
 return null
 }
  
+
+
  var lowerEl=confirm("would you like to include lowercase letters");
  
   var upperEl=confirm("would you like to include uppercase letters");	
@@ -72,21 +75,6 @@ return null
   return passwordResult;
 
 
-// var typescount = lower + upper + number + symbol;
-
-//   var typesArray = [{upper}, {lower}, {number}, {symbol}].filter
-//   (
-//     item => Object.values(item)[0]
-//   );
-
-  // for(let i = 0; i < length; i += typescount) {
-  //   typesArray.forEach(type => {
-  //     const funcName = object.key(type)[0];
-
-  //    passwordText += randomFunc[funcName]();
-  //   });
-  // }
-
 }
 
 // Write password to the #password input
@@ -99,5 +87,3 @@ function writePassword() {
 
    
 }
-
-wftbciunzvnrcwzljlrhsqwyxeljiszwzjT,6
